@@ -1,76 +1,50 @@
-# python_project_template
+# canmatrix_webapp
 
-A template repository for Python 🐍 projects. This template includes a recommended project structure, automated testing, and documentation generation using [MkDocs](https://www.mkdocs.org/).
+A Streamlit webapp for the [canmatrix](https://github.com/ebroecker/canmatrix) Python package.
 
----
+## Environment Setup
 
-## Features
+* Run `scripts/venv_setup.bat` to create and activate a virtual environment with all dependencies.
 
-- Standard Python project layout
-- Automated virtual environment setup
-- Build scripts for wheel packaging
-- Integrated unit testing with pytest and coverage reporting
-- Documentation generation with MkDocs
+## Installation
 
----
+1. Clone this repository.
+2. Set up the environment as above.
+3. (Optional) Build the wheel:
+   `scripts/build_wheel_package.bat`
 
-## Getting Started
+## Usage
 
-### 1. Set up the environment
+### Launch the Web Application
 
-Create and activate a virtual environment, and install dependencies:
-
-```sh
-scripts/venv_setup.bat
-```
-
-### 2. Build the wheel package
-
-Generate a distributable `.whl` file:
+You can start the web application using the provided launcher:
 
 ```sh
-scripts/build_wheel_package.bat
+python -m canmatrix_webapp.run_web_app
 ```
 
-### 3. Run tests
+#### Optional Arguments
 
-Execute all test cases and generate a coverage report:
+- `--server-address ADDRESS`
+  Address to bind the Streamlit server (default: system FQDN)
+- `--server-port PORT`
+  Port to run the Streamlit server on (default: 8502)
+
+Example:
 
 ```sh
-scripts/run_pytests_with_report.bat
+python -m canmatrix_webapp.run_web_app --server-address 127.0.0.1 --server-port 8502
 ```
 
-Test results and coverage reports will be available in the `tests/report/` directory.
+### Features
 
----
+- Upload CAN matrix files in various formats (DBC, ARXML, KCD, FIBEX, XLS, XLSX, XML)
+- Explore loaded matrices, view ECUs, frames, and signals
+- Export matrices to supported formats
 
 ## Documentation
 
-Documentation is written in Markdown and built using MkDocs. To build and serve the documentation locally:
-
-```sh
-mkdocs serve
-```
-
-The documentation will be available at [http://localhost:8000](http://localhost:8000).
+- Build docs locally:
+  `scripts/local_mkdoc_build.bat`
 
 ---
-
-## Project Structure
-
-```
-src/
-    python_project_template/
-        app.py
-        __init__.py
-tests/
-    test_my_package.py
-scripts/
-    venv_setup.bat
-    build_wheel_package.bat
-    run_pytests_with_report.bat
-    deploy_docs_to_github.bat
-docs/
-    index.md
-    reference_manual.md
-```

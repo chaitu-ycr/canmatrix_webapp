@@ -1,2 +1,2 @@
 
-::: src.python_project_template.app
+::: src.canmatrix_webapp.web_app
